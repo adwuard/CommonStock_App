@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">CommonStock</string>
+    <string name="calPortValue">Calculate Portfolio Value</string>
+    <string name="seeCurrStockRate">Current Stock Rate</string>
+    <string name="savedPortValues">Saved Values</string>
+    <string name="title_activity_portfolio_options">portfolioOptions</string>
+
+
+    --! options
+
+    <string name="stocksCheckBox">Stocks</string>
+    <string name="bondsCheckBox">Bonds</string>
+    <string name="ForwardContractsCheckBox">Forward Contracts</string>
+    <string name="callOptionsCheckBox">Call Options</string>
+    <string name="putOptionsCheckBox">Put Options</string>
+    <string name="continueButton">Continue</string>
+    <string name="title_activity_user_input">UserInput</string>>
+
+
+    --! user input
+    <string name="stocksText">Stocks</string>>
+    <string name="BondsText">Bonds</string>>
+    <string name="forwardText">Forward Contracts</string>>
+    <string name="callText">Call Options</string>>
+    <string name="putText">Put Options</string>>
+
+    <string name="number">num</string>>
+    <string name="fuNum_1">Future Value 1</string>>
+    <string name="fuNum_2">Future Value 2</string>>
+    <string name="currentValueText">Current Value</string>>
+
+    <string name="calculate">Calculate</string>>
+
+
+
+    <string name="clearButton">Clear</string>
+    <string name="Backbutton">Back</string>
+    <string name="title_activity_current_stock_rates">CurrentStockRates</string>
+    <string name="CurrentStockRates">Current Stock Rates</string>
+    <string name="Alphavantageplaceholder">AlphaVantage Stock List to go here</string>
+    <string name="title_activity_stock__results">Stock_Results</string>
+    <string name="Results">Results</string>
+    <string name="Valueifup">Portfolio Value If Up:</string>
+    <string name="Valueifdown">Portfolio Value if Down:</string>
+    <string name="risk">Risk:</string>
+    <string name="portfolioreturn">Return:</string>
+    <string name="emailresults">Email Results</string>
+    <string name="tryanotheresult">Try Another Result</string>
+    <string name="done">Done</string>
+    <string name="editvalues">Edit Values</string>>
+
+
+
+</resources>
