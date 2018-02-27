@@ -2,6 +2,7 @@ package edu.hul233psu.commonstock;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -22,6 +23,4 @@ public class UserInput extends AppCompatActivity {
         Intent intent = new Intent(this, Stock_Results.class);
         startActivity(intent);
     }
-
-
 }

@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 public class Stock_Results extends AppCompatActivity {
 
+    //This is what we have for the new additions to my projects for the AlertDialog, Toast, and UI button Wire-up.
+
     Button emailresultbutton;
     Button done;
 
@@ -28,24 +30,36 @@ public class Stock_Results extends AppCompatActivity {
         emailresultbutton= findViewById(R.id.emailresultsbutton);
         done = findViewById(R.id.buttondone);
 
-        emailresultbutton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Toast.makeText(getApplicationContext(), "Email Sent", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-
+        emailresultbutton.setOnClickListener(emailButtonListener); //Wires the button to the UI Listener
+        done.setOnClickListener(doneButtonListener); //Wires the button to the UI Listener
     }
 
+    //Listener for the Email Button
+    private View.OnClickListener emailButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            //Method that issues the Toast
+            Toast.makeText(Stock_Results.this, "Email Sent", Toast.LENGTH_SHORT).show();
+            //The toast appears when the user presses the Email Button and it succeeds.
+        }
+    };
+
+    //Listener for the Done Button
+    private View.OnClickListener doneButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            open(view); //Code that causes the AlertDialog to be displayed
+        }
+    };
 
     public void open(View view){
+        //Code that subclasses AlertDialog
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Save the data bafore finish?");
+        alertDialogBuilder.setMessage("Save the data bafore finish?"); //Code to display the dialog
                 alertDialogBuilder.setPositiveButton("yes",
                         new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface arg0, int arg1) {
+                            public void onClick(DialogInterface arg0, int arg1) { //Code for the buttons
                                 Toast.makeText(Stock_Results.this,"Data Saved",Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(Stock_Results.this, MainActivity.class);
                                 startActivity(intent);
@@ -54,7 +68,7 @@ public class Stock_Results extends AppCompatActivity {
                         });
 
         alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-            @Override
+            @Override //Code for the other buttons
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Stock_Results.this, MainActivity.class);
                 startActivity(intent);
