@@ -56,16 +56,16 @@ public class Stock_Results extends AppCompatActivity {
         //Code that subclasses AlertDialog
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Save the data bafore finish?"); //Code to display the dialog
-                alertDialogBuilder.setPositiveButton("yes",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface arg0, int arg1) { //Code for the buttons
-                                Toast.makeText(Stock_Results.this,"Data Saved",Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Stock_Results.this, MainActivity.class);
-                                startActivity(intent);
-                            }
+        alertDialogBuilder.setPositiveButton("yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) { //Code for the buttons
+                        Toast.makeText(Stock_Results.this,"Data Saved",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(Stock_Results.this, MainActivity.class);
+                        startActivity(intent);
+                    }
 
-                        });
+                });
 
         alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
             @Override //Code for the other buttons
@@ -78,5 +78,4 @@ public class Stock_Results extends AppCompatActivity {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }
-
 }

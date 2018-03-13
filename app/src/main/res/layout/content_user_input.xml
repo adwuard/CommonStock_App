@@ -24,7 +24,6 @@
         android:id="@+id/calculate"
         android:layout_width="384dp"
         android:layout_height="37dp"
-        android:onClick="goToStockResults"
         android:text="@string/calculate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
