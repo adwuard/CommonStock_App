@@ -33,7 +33,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class PortfolioHistory extends AppCompatActivity {
-
+    public static long rowid_temp;
     private SQLiteDatabase db;
     private SimpleCursorAdapter adapter;
     private final static int ADD_ACTIVITY_RESULT = 1;
@@ -46,44 +46,44 @@ public class PortfolioHistory extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        onCreateSetupJokeListAdapter();
-        onCreateSetupJokeListView();
+        onCreateSetupListAdapter();
+        onCreateSetupListView();
 
         ResultDatabase.getInstance(this).getWritableDatabase(new ResultDatabase.OnDBReadyListener() {
             @Override
             public void onDBReady(SQLiteDatabase theDB) {
                 db = theDB;
                 dbAsyncLoadCursor(false);
+                adapter.notifyDataSetChanged();
             }
         });
-
     }
 
 
-
-    private void onCreateSetupJokeListAdapter() {
+    private void onCreateSetupListAdapter() {
         // Initially set cursor to null BC IT IS NOT YET READY!
         adapter = new SimpleCursorAdapter(this, R.layout.list_item, null,
-                new String[]{"Titles"},
-                new int[]{R.id.txtTitle}, 0);
+                new String[]{"Titles","ReturnValue"},
+                new int[]{R.id.txtTitle, R.id.txtReturn}, 0);
     }
 
 
 
     //Adapt the list view into the list view
-    private void onCreateSetupJokeListView() {
+    private void onCreateSetupListView() {
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
-        /*
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                displayJoke(id);// call the joke
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                displayInfo(id);
+                rowid_temp=id;
             }
         });
 
+        /*
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
@@ -96,8 +96,8 @@ public class PortfolioHistory extends AppCompatActivity {
         });*/
     }
 
-/*
-    @Override
+
+/*    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_ACTIVITY_RESULT  && resultCode != AddActivity.RESULT_DB_UNCHANGED) {
@@ -118,14 +118,13 @@ public class PortfolioHistory extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     private void dbAsyncLoadCursor(boolean scrollToEnd) {
 
-        new AsyncTask<Boolean, Void, Cursor>() {//error
+        new AsyncTask<Boolean, Void, Cursor>() {
             boolean scrollToEnd;
             @Override
             protected Cursor doInBackground(Boolean... params) {
                 scrollToEnd = params[0];
-                String where = null;
-                String[] projection = {"_id", "Titles"};
-                return db.query("result", projection,where,null, null, null, null);//errorr
+                String[] projection = {"_id", "Titles", "ReturnValue"};
+                return db.query("result", projection,null,null, null, null, null);
             }
 
             @Override
@@ -138,35 +137,41 @@ public class PortfolioHistory extends AppCompatActivity {
     }
 
 
-/*
 
-    private void displayJoke(long rowid) {
+
+
+    private void displayInfo(long rowid) {
         String where = "_id = " + rowid;
 
-        String[] projection = {"_id", "title", "setup", "punchline", "liked"};
-        Cursor cursor = db.query("jokes", projection, where,
+        String[] projection = {"_id", "Titles", "ValueIfUp", "ValueIfDown", "Risk","ReturnValue"};
+
+        Cursor cursor = db.query("result", projection, where,
                 null, null, null, null);
         if (cursor.moveToFirst()) {
             // Arguments are a way to set values for the dialog that will be passed
             // even if fragment gets destroyed and recreated
             Bundle args = new Bundle();
             args.putLong("rowid", rowid);
-            args.putString("title",cursor.getString(cursor.getColumnIndexOrThrow("title")));
-            args.putString("setup",cursor.getString(cursor.getColumnIndexOrThrow("setup")));
-            args.putString("punchline",cursor.getString(cursor.getColumnIndexOrThrow("punchline")));
+            args.putString("Titles",cursor.getString(cursor.getColumnIndexOrThrow("Titles")));
+            args.putString("ValueIfUp",cursor.getString(cursor.getColumnIndexOrThrow("ValueIfUp")));
+            args.putString("ValueIfDown",cursor.getString(cursor.getColumnIndexOrThrow("ValueIfDown")));
+            args.putString("Risk",cursor.getString(cursor.getColumnIndexOrThrow("Risk")));
+            args.putString("ReturnValue",cursor.getString(cursor.getColumnIndexOrThrow("ReturnValue")));
+
+
 
             DisplaySetupDialog setupDialog = new DisplaySetupDialog();
             setupDialog.setArguments(args);
             setupDialog.show(getFragmentManager(), "setupDialog");
         }
         else {
-            Toast.makeText(MainActivity.this, "Record could not be retrieved...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Record could not be retrieved...", Toast.LENGTH_SHORT).show();
         }
         cursor.close();
     }
 
 
-
+/*
     private void update(long rowid, String liked) {
         ContentValues values = new ContentValues();
         values.put("liked", liked);
@@ -184,7 +189,7 @@ public class PortfolioHistory extends AppCompatActivity {
             dbAsyncLoadCursor(false);
         }
     }
-
+*/
 
 
     public static class DisplaySetupDialog extends DialogFragment {
@@ -194,74 +199,80 @@ public class PortfolioHistory extends AppCompatActivity {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
             final long rowid = getArguments().getLong("rowid");
-            final String title = getArguments().getString("title");
-            final String setup = getArguments().getString("setup");
-            final String punchline = getArguments().getString("punchline");
+            final String title = getArguments().getString("Titles");
+            final String valueIfUp = getArguments().getString("ValueIfUp");
+            final String valueIfDown = getArguments().getString("ValueIfDown");
+            final String risk = getArguments().getString("Risk");
+            final String returnValue = getArguments().getString("ReturnValue");
 
             builder.setTitle(title)
-                    .setMessage(setup)
-                    .setPositiveButton("Punchline",
+                    .setMessage(
+                            "Id:"+rowid+"\n"+
+                            "Value Up: "+ valueIfUp+"\n"+
+                            "Value Down: "+ valueIfDown+"\n"+
+                            "Risk: "+risk+"\n"+
+                                    "ReturnValue: "+returnValue+"\n"
+                    )
+                    .setPositiveButton("Ok",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    DisplayPunchlineDialog punchlineDialog =
-                                            new DisplayPunchlineDialog();
 
-                                    Bundle args = new Bundle();
-                                    args.putLong("rowid", rowid);
-                                    args.putString("title", title);
-                                    args.putString("punchline", punchline);
-                                    punchlineDialog.setArguments(args);
 
-                                    punchlineDialog.show(getFragmentManager(),
-                                            "punchlineDialog");
+
                                 }
                             })
-                    .setNegativeButton("Cancel",
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                }
-                            });
+
+                    .setNeutralButton("Delete", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            ConfirmDeleteDialog confirmDialog = new ConfirmDeleteDialog();
+                            confirmDialog.show(getFragmentManager(), "deletionConfirmation");
+
+                        }
+                    });
+
+
+
 
             return builder.create();
         }
     }
 
+    public void deleteRecord(long rowid) {
+        String where = "_id = " + rowid;
+        db.delete("result", where, null);
+    }
 
-
-
-
-    public static class DisplayPunchlineDialog extends DialogFragment {
+    public static class ConfirmDeleteDialog extends DialogFragment {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            final long rowid = getArguments().getLong("rowid");
-            String title = getArguments().getString("title");
-            String punchline = getArguments().getString("punchline");
 
-            builder.setTitle(title)
-                    .setMessage(punchline)
-                    .setPositiveButton("Like", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            ((MainActivity) getActivity()).update(rowid, "Y");
-                        }
-                    })
-                    .setNegativeButton("Dislike",
+            builder.setTitle("Delete the joke?")
+                    .setMessage("You will not be able to undo the deletion!")
+                    .setPositiveButton("Delete",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    ((MainActivity) getActivity()).update(rowid, "N");
+
+                                    try {
+                                        ((PortfolioHistory) getActivity()).deleteRecord(rowid_temp);
+                                        getActivity().finish();
+                                    } catch (SQLException e) {
+                                        Toast.makeText(getActivity(),
+                                                "Error deleting record.",
+                                                Toast.LENGTH_LONG).show();
+                                    }
                                 }
                             })
-                    .setNeutralButton("Decide later",
+                    .setNegativeButton("Return to history",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
+                                    getActivity().finish();
                                 }
                             });
-
             return builder.create();
         }
     }
-
-*/
+    
 }

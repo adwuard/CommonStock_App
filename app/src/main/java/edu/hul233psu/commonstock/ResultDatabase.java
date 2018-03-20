@@ -16,7 +16,7 @@ public class ResultDatabase extends SQLiteOpenHelper {
             void onDBReady(SQLiteDatabase theDB);
         }
 
-        private static final int DATABASE_VERSION = 2;
+        private static final int DATABASE_VERSION = 5;
         private static final String DATABASE_NAME = "result.db";
 
         private static final String SQL_CREATE_ENTRIES =
@@ -47,6 +47,7 @@ public class ResultDatabase extends SQLiteOpenHelper {
             }
             return theDb;
         }
+
 
         @Override
         public void onCreate(SQLiteDatabase db) {
