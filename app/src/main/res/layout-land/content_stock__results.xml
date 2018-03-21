@@ -25,11 +25,12 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="33dp"
         android:layout_marginStart="8dp"
         android:text="@string/Valueifdown"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="122dp" />
+        app:layout_constraintBottom_toTopOf="@+id/emailresultsbutton"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView11"

@@ -10,6 +10,7 @@
     tools:showIn="@layout/activity_portfolio_options">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="360dp"
         android:layout_marginEnd="16dp"
@@ -17,6 +18,7 @@
         android:layout_marginTop="16dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -81,6 +83,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
     </LinearLayout>
+
     <Button
         android:id="@+id/button4"
         android:layout_width="373dp"
@@ -92,13 +95,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintGuide_begin="301dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
