@@ -30,6 +30,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PortfolioHistory extends AppCompatActivity {
@@ -169,28 +170,33 @@ public class PortfolioHistory extends AppCompatActivity {
         }
         cursor.close();
     }
-
-
 /*
-    private void update(long rowid, String liked) {
+    //Need work and get results from calculation once calculation function is finished.
+    private void addRecord() {
         ContentValues values = new ContentValues();
-        values.put("liked", liked);
-        String where = "_id = " + rowid;
+        values.put("Title",
+                ((TextView) findViewById(R.id.textView)).getText().toString());
+        values.put("ValueIfUp",
+                ((TextView) findViewById(R.id.textView2)).getText().toString());
+       // and so on.
 
-        int count = 0;
         try {
-            count = db.update("jokes", values, where, null);
+            if (rowid == -1) {
+                values.put("liked", "?");
+                db.insert("jokes",null,values);
+                setResult(RESULT_DB_ADDED_RECORD);
+            } else {
+                String where = "_id = " + rowid;
+                db.update("jokes", values, where,null);
+                setResult(RESULT_DB_CHANGED);
+            }
+
+            finish(); // Quit activity
         } catch (SQLException e) {
-            Log.e("JokeDB", e.getMessage());
-        }
-        if (count == 0) {
-            Toast.makeText(MainActivity.this, "Error updating record.", Toast.LENGTH_LONG).show();
-        } else {
-            dbAsyncLoadCursor(false);
+            Toast.makeText(this,"Error updating database.",Toast.LENGTH_LONG).show();
         }
     }
 */
-
 
     public static class DisplaySetupDialog extends DialogFragment {
 
@@ -249,7 +255,7 @@ public class PortfolioHistory extends AppCompatActivity {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-            builder.setTitle("Delete the joke?")
+            builder.setTitle("Delete the item from the history?")
                     .setMessage("You will not be able to undo the deletion!")
                     .setPositiveButton("Delete",
                             new DialogInterface.OnClickListener() {
