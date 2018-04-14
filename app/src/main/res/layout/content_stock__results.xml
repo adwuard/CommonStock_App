@@ -13,7 +13,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginStart="8dp"
         android:text="@string/Valueifup"
         android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"
@@ -71,4 +70,39 @@
         app:layout_constraintBottom_toTopOf="@+id/buttondone"
         app:layout_constraintEnd_toEndOf="@+id/buttondone"
         app:layout_constraintStart_toStartOf="@+id/buttondone" />
+
+    <TextView
+        android:id="@+id/ValueDown"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        tools:layout_editor_absoluteY="122dp" />
+
+    <TextView
+        android:id="@+id/ValueRisk"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/ValueDown" />
+
+    <TextView
+        android:id="@+id/ValueReturn"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/ValueRisk" />
+
+    <TextView
+        android:id="@+id/Valueup"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/ValueDown"
+        app:layout_constraintStart_toEndOf="@+id/textView9" />
 </android.support.constraint.ConstraintLayout>
