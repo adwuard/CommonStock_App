@@ -31,8 +31,6 @@
 
     <string name="calculate">Calculate</string>>
 
-
-
     <string name="clearButton">Clear</string>
     <string name="Backbutton">Back</string>
     <string name="title_activity_current_stock_rates">CurrentStockRates</string>
@@ -47,6 +45,8 @@
     <string name="emailresults">Email Results</string>
     <string name="tryanotheresult">Try Another Result</string>
     <string name="done">Done</string>
+    <string name="probabilityup">Probability</string>
+    <string name="percentage">Percentage</string>
     <string name="editvalues">Edit Values</string>>
 
 
