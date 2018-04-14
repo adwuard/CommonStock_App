@@ -78,8 +78,8 @@
 
             <EditText
                 android:id="@+id/editText32"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
                 android:hint="@string/number"
                 android:inputType="number" />
@@ -89,7 +89,7 @@
                 android:layout_width="134dp"
                 android:layout_height="42dp"
                 android:ems="10"
-                android:hint="@string/fuNum_1"
+                android:hint="@string/currentValueText"
                 android:inputType="number" />
         </TableRow>
 
@@ -103,7 +103,7 @@
                 android:layout_width="118dp"
                 android:layout_height="match_parent"
                 android:ems="10"
-                android:hint="@string/currentValueText"
+                android:hint="@string/fuNum_1"
                 android:inputType="number" />
 
             <EditText
@@ -129,22 +129,37 @@
 
             <EditText
                 android:id="@+id/editText36"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
                 android:hint="@string/number"
                 android:inputType="number" />
 
             <EditText
                 android:id="@+id/editText35"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
                 android:hint="@string/currentValueText"
                 android:inputType="number" />
 
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editText34"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:hint="@string/fuNum_1"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="273dp"
+                tools:layout_editor_absoluteY="316dp" />
+
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -159,13 +174,22 @@
                 tools:layout_editor_absoluteX="3dp"
                 tools:layout_editor_absoluteY="271dp" />
 
+            <EditText
+                android:id="@+id/editText44"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:hint="@string/number"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="273dp"
+                tools:layout_editor_absoluteY="316dp" />
 
             <EditText
                 android:id="@+id/editText42"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/fuNum_1"
+                android:hint="@string/currentValueText"
                 android:inputType="number"
                 tools:layout_editor_absoluteX="273dp"
                 tools:layout_editor_absoluteY="316dp" />
@@ -180,10 +204,10 @@
 
             <EditText
                 android:id="@+id/editText41"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/fuNum_2"
+                android:hint="@string/fuNum_1"
                 android:inputType="number"
                 tools:layout_editor_absoluteX="273dp"
                 tools:layout_editor_absoluteY="374dp" />
@@ -191,10 +215,10 @@
 
             <EditText
                 android:id="@+id/editText43"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/currentValueText"
+                android:hint="@string/fuNum_2"
                 android:inputType="number"
                 tools:layout_editor_absoluteX="130dp"
                 tools:layout_editor_absoluteY="374dp" />
@@ -217,8 +241,8 @@
 
             <EditText
                 android:id="@+id/editText48"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
                 android:hint="@string/number"
                 android:inputType="number"
@@ -227,10 +251,10 @@
 
             <EditText
                 android:id="@+id/editText46"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/fuNum_1"
+                android:hint="@string/currentValueText"
                 android:inputType="number"
                 tools:layout_editor_absoluteX="273dp"
                 tools:layout_editor_absoluteY="432dp" />
@@ -243,18 +267,18 @@
 
             <EditText
                 android:id="@+id/editText47"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/currentValueText"
+                android:hint="@string/fuNum_1"
                 android:inputType="number"
                 tools:layout_editor_absoluteX="130dp"
                 tools:layout_editor_absoluteY="490dp" />
 
             <EditText
                 android:id="@+id/editText45"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
                 android:hint="@string/fuNum_2"
                 android:inputType="number"
@@ -278,28 +302,23 @@
 
             <EditText
                 android:id="@+id/editText6"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
                 android:hint="@string/number"
                 android:inputType="number"
-                 />
+                />
 
             <EditText
                 android:id="@+id/editText3"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/fuNum_1"
+                android:hint="@string/currentValueText"
                 android:inputType="number"
                 />
 
-
-
-
-
         </TableRow>
-
 
 
         <TableRow
@@ -307,18 +326,42 @@
             android:layout_height="match_parent">
             <EditText
                 android:id="@+id/editText"
-                android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/fuNum_2"
+                android:hint="@string/fuNum_1"
                 android:inputType="number"
-               />
+                />
             <EditText
                 android:id="@+id/editText4"
                 android:layout_width="134dp"
-                android:layout_height="42dp"
+                android:layout_height="40dp"
                 android:ems="10"
-                android:hint="@string/currentValueText"
+                android:hint="@string/fuNum_2"
+                android:inputType="number"
+                />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/probabilityup"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium" />
+
+
+            <EditText
+                android:id="@+id/editText49"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:ems="10"
+                android:hint="@string/percentage"
                 android:inputType="number"
                 />
 
