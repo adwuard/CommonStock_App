@@ -27,7 +27,7 @@ public class portfolioOptions extends AppCompatPreferenceActivity{
 
         continuebutton=findViewById(R.id.button4);
 
-        continuebutton.setOnClickListener(ContinueListener); //Wires the button to the UI Listener
+        continuebutton.setOnClickListener(ContinueListener); //Wires the button to the UI Listene
     }
 
     public void onCheckboxClicked(View view) {
