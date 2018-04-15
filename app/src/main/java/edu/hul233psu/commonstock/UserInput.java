@@ -121,7 +121,7 @@ public class UserInput extends AppCompatActivity {
         putfuturehigh = Integer.parseInt(put4.getText().toString());
         percent = Integer.parseInt(percentinput.getText().toString());
 
-        calculatebutton.setOnClickListener(CalculateListener); //Wires the button to the UI Listener
+        calculatebutton.setOnClickListener(CalculateListener); //Wires the button to the UI Listen
 
     }
 
