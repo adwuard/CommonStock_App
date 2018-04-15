@@ -13,6 +13,11 @@ import android.view.View;
 public class portfolioOptions extends AppCompatActivity {
 
     Button continuebutton;
+    public static boolean isstocks;
+    public static boolean isbonds;
+    public static boolean isforwardcontract;
+    public static boolean iscall;
+    public static boolean isput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,46 +36,50 @@ public class portfolioOptions extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.checkBox:
                 if (checked) {
-                    //Code for this option
+                    isstocks = true;
                 }
                 else {
-                    //Code not for this option
+                    isstocks = false;
                 }
                 break;
             case R.id.checkBox2:
                 if (checked) {
-                    //Code for this option
+                    isbonds = true;
                 }
                 else {
-                    //Code not for this option
+                    isbonds = false;
                 }
                 break;
             case R.id.checkBox3:
                 if (checked) {
-                    //Code for this option
+                    isforwardcontract = true;
                 }
                 else {
-                    //Code not for this option
+                    isforwardcontract = false;
                 }
                 break;
             case R.id.checkBox4:
                 if (checked) {
-                    //Code for this option
+                    iscall = true;
                 }
                 else {
-                    //Code not for this option
+                    iscall = false;
                 }
                 break;
             case R.id.checkBox5:
                 if (checked) {
-                    //Code for this option
+                    isput = true;
                 }
                 else {
-                    //Code not for this option
+                    isput = false;
                 }
                 break;
             default:
-                //Code here
+                isstocks = false;
+                isbonds = false;
+                isforwardcontract = false;
+                iscall = false;
+                isput = false;
         }
     }
 
@@ -87,6 +96,4 @@ public class portfolioOptions extends AppCompatActivity {
         }
     };
 
-    }
-
-
+}
