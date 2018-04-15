@@ -188,10 +188,6 @@ public class PortfolioHistory extends AppCompatActivity {
 
                         }
                     });
-
-
-
-
             return builder.create();
         }
     }

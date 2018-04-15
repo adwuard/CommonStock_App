@@ -3,6 +3,8 @@ package edu.hul233psu.commonstock;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -21,6 +23,7 @@ public class Stock_Results extends AppCompatActivity {
 
     //This is what we have for the new additions to my projects for the AlertDialog, Toast, and UI button Wire-up.
     public static String saveTitle = "";
+    private SQLiteDatabase db;
     Button emailresultbutton;
     Button done;
 
@@ -49,6 +52,14 @@ public class Stock_Results extends AppCompatActivity {
         valuedown = findViewById(R.id.ValueDown);
         valuerisk = findViewById(R.id.ValueRisk);
         valuereturn = findViewById(R.id.ValueReturn);
+
+        ResultDatabase.getInstance(this).getWritableDatabase(new ResultDatabase.OnDBReadyListener() {
+            @Override
+            public void onDBReady(SQLiteDatabase theDB) {
+                db = theDB;
+                //final long rowid = cursor.getLong(cursor.getColumnIndex(_id));
+            }
+        });
 
         calculateresults(); //Calculate Function
 
@@ -169,6 +180,25 @@ public class Stock_Results extends AppCompatActivity {
 
     }
 
+    private void saveToDB (String title) { //Function to save the values to the database
+        ContentValues values = new ContentValues();
+
+        values.put("Titles", title);
+        values.put("ValueIfUp", valueifup);
+        values.put("ValueIfDown", valueifdown);
+        values.put("Risk", prisk);
+        values.put("ReturnValue", preturn);
+
+        try {
+            db.insert("result", null, values);
+            finish();
+
+        } catch (SQLException e) {
+            Toast.makeText(Stock_Results.this,"Error Updating Database",Toast.LENGTH_LONG).show();
+        }
+
+    }
+
     public void displaySave(final View view){
         //Code that subclasses AlertDialog
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -211,6 +241,8 @@ public class Stock_Results extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 saveTitle = input.getText().toString();
+                saveToDB(saveTitle); //Save to database
+
                 Intent intent = new Intent(Stock_Results.this, MainActivity.class);
                 startActivity(intent);
                 Toast.makeText(Stock_Results.this,"Data Saved",Toast.LENGTH_LONG).show();
