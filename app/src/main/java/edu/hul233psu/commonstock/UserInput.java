@@ -35,6 +35,7 @@ public class UserInput extends AppCompatActivity {
     EditText put2;
     EditText put3;
     EditText put4;
+    
 
     EditText percentinput;
 
