@@ -43,8 +43,6 @@ public class Stock_Results extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        calculateresults();
-
         emailresultbutton= findViewById(R.id.emailresultsbutton);
         done = findViewById(R.id.buttondone);
         valueup = findViewById(R.id.Valueup);
@@ -52,10 +50,8 @@ public class Stock_Results extends AppCompatActivity {
         valuerisk = findViewById(R.id.ValueRisk);
         valuereturn = findViewById(R.id.ValueReturn);
 
-        valueup.setText(Float.toString(valueifup));
-        valuedown.setText(Float.toString(valueifdown));
-        valuerisk.setText(Float.toString(prisk));
-        valuereturn.setText(Float.toString(preturn));
+        calculateresults(); //Calculate Function
+
 
         emailresultbutton.setOnClickListener(emailButtonListener); //Wires the button to the UI Listener
         done.setOnClickListener(doneButtonListener); //Wires the button to the UI Listener
@@ -118,23 +114,58 @@ public class Stock_Results extends AppCompatActivity {
         float percentup = percentage / 100;
         float percentdown = 1 - percentup;
 
+        if (snumber == 0) { //To avoid divide by zero if field is empty
+            stocksup = 0;
+            stocksdown = 0;
+        }
+        else { //Calculate results otherwise
+            stocksup = ((sfuturehigh * snumber) - (sinitvalue * snumber)) / (sinitvalue * snumber);
+            stocksdown = ((sfuturelow * snumber) - (sinitvalue * snumber)) / (sinitvalue * snumber);
+        }
+        if (bnumber == 0) { //To avoid divide by zero if field is empty
+            bonds = 0;
+        }
+        else { //Calculate results otherwise
+            bonds = ((bfuture * bnumber) - (binitvalue * bnumber)) / (binitvalue * bnumber);
+        }
+        if (fnumber == 0) { //To avoid divide by zero if field is empty
+            futurecontractsup = 0;
+            futurecontractsdown = 0;
+        }
+        else { //Calculate results otherwise
+            futurecontractsup = ((ffuturehigh * fnumber) - (finitvalue * fnumber)) / (finitvalue * fnumber);
+            futurecontractsdown = ((ffuturelow * fnumber) - (finitvalue * fnumber)) / (finitvalue * fnumber);
+        }
+        if (cnumber == 0) { //To avoid divide by zero if field is empty
+            calloptionsup = 0;
+            calloptionsdown = 0;
+        }
+        else { //Calculate results otherwise
+            calloptionsup = ((cfuturehigh * cnumber) - (cinitvalue * cnumber)) / (cinitvalue * cnumber);
+            calloptionsdown = ((cfuturelow * cnumber) - (cinitvalue * cnumber)) / (cinitvalue * cnumber);
+        }
+        if (pnumber == 0) {  //To avoid divide by zero if field is empty
+            putoptionsup = 0;
+            putoptionsdown = 0;
+        }
+        else { //Calculate results otherwise
+            putoptionsup = ((pfuturehigh * pnumber) - (pinitvalue * pnumber)) / (pinitvalue * pnumber);
+            putoptionsdown = ((pfuturelow * pnumber) - (pinitvalue * pnumber)) / (pinitvalue * pnumber);
+        }
 
-        stocksup = ((sfuturehigh * snumber) - (sinitvalue * snumber)) / (sinitvalue * snumber);
-        stocksdown = ((sfuturelow * snumber) - (sinitvalue * snumber)) / (sinitvalue * snumber);
-        bonds = ((bfuture * bnumber) - (binitvalue * bnumber)) / (binitvalue * bnumber);
-        futurecontractsup = ((ffuturehigh * fnumber) - (finitvalue * fnumber)) / (finitvalue * fnumber);
-        futurecontractsdown = ((ffuturelow * fnumber) - (finitvalue * fnumber)) / (finitvalue * fnumber);
-        calloptionsup = ((cfuturehigh * cnumber) - (cinitvalue * cnumber)) / (cinitvalue * cnumber);
-        calloptionsdown = ((cfuturelow * cnumber) - (cinitvalue * cnumber)) / (cinitvalue * cnumber);
-        putoptionsup = ((pfuturehigh * pnumber) - (pinitvalue * pnumber)) / (pinitvalue * pnumber);
-        putoptionsdown = ((pfuturelow * pnumber) - (pinitvalue * pnumber)) / (pinitvalue * pnumber);
-
+        //Finishing calculations
         Stock_Results.valueifup = stocksup + bonds + futurecontractsup + calloptionsup + putoptionsup;
         Stock_Results.valueifdown = stocksdown + bonds + futurecontractsdown + calloptionsdown + putoptionsdown;
         Stock_Results.preturn = (Stock_Results.valueifup * percentup) + (Stock_Results.valueifdown * percentdown);
         riskpart1 = (percentup * ((Stock_Results.valueifup - Stock_Results.preturn) * (Stock_Results.valueifup - Stock_Results.preturn)));
         riskpart2 = (percentdown * ((Stock_Results.valueifdown - Stock_Results.preturn) * (Stock_Results.valueifdown - Stock_Results.preturn)));
         Stock_Results.prisk = (float) Math.sqrt(riskpart1 + riskpart2);
+
+        //display the results
+        valueup.setText(Float.toString(valueifup));
+        valuedown.setText(Float.toString(valueifdown));
+        valuerisk.setText(Float.toString(prisk));
+        valuereturn.setText(Float.toString(preturn));
 
     }
 

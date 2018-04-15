@@ -185,131 +185,131 @@ public class UserInput extends AppCompatActivity {
         String putFutureHigh = put4.getText().toString();
         String percentS = percentinput.getText().toString();
 
-        if (stockNumber.equals("")) {
+        if (stockNumber.equals("")) { //In case input is empty
             stocknumber = 0;
         }
         else {
-            stocknumber = Integer.parseInt(stockNumber);
+            stocknumber = Float.parseFloat(stockNumber);
         }
-        if (bondNumber.equals("")) {
+        if (bondNumber.equals("")) { //In case input is empty
             bondnumber = 0;
         }
         else{
-            bondnumber = Integer.parseInt(bondNumber);
+            bondnumber = Float.parseFloat(bondNumber);
         }
-        if (forwardcNumber.equals("")) {
+        if (forwardcNumber.equals("")) { //In case input is empty
             forwardcnumber = 0;
         }
         else{
-            forwardcnumber = Integer.parseInt(forwardcNumber);
+            forwardcnumber = Float.parseFloat(forwardcNumber);
         }
-        if (callNumber.equals("")) {
+        if (callNumber.equals("")) { //In case input is empty
             callnumber = 0;
         }
         else{
-            callnumber = Integer.parseInt(callNumber);
+            callnumber = Float.parseFloat(callNumber);
         }
-        if (putNumber.equals("")) {
+        if (putNumber.equals("")) { //In case input is empty
             putnumber = 0;
         }
         else{
-            putnumber = Integer.parseInt(putNumber);
+            putnumber = Float.parseFloat(putNumber);
         }
 
 
-        if (stockInitValue.equals("")) {
+        if (stockInitValue.equals("")) { //In case input is empty
             stockinitvalue = 0;
         }
         else{
-            stockinitvalue = Integer.parseInt(stockInitValue);
+            stockinitvalue = Float.parseFloat(stockInitValue);
         }
-        if (bondInitValue.equals("")) {
+        if (bondInitValue.equals("")) { //In case input is empty
             bondinitvalue = 0;
             }
         else{
-            bondinitvalue = Integer.parseInt(bondInitValue);
+            bondinitvalue = Float.parseFloat(bondInitValue);
         }
-        if (forwardcInitValue.equals("")) {
+        if (forwardcInitValue.equals("")) { //In case input is empty
             forwardcinitvalue = 0;
         }
         else{
-            forwardcinitvalue = Integer.parseInt(forwardcInitValue);
+            forwardcinitvalue = Float.parseFloat(forwardcInitValue);
         }
-        if (callInitValue.equals("")) {
+        if (callInitValue.equals("")) { //In case input is empty
             callinitvalue = 0;
         }
         else{
-            callinitvalue = Integer.parseInt(callInitValue);
+            callinitvalue = Float.parseFloat(callInitValue);
         }
-        if (putInitValue.equals("")) {
+        if (putInitValue.equals("")) { //In case input is empty
             putinitvalue = 0;
         }
         else{
-            putinitvalue = Integer.parseInt(putInitValue);
+            putinitvalue = Float.parseFloat(putInitValue);
         }
 
 
-        if (stockFutureLow.equals("")) {
+        if (stockFutureLow.equals("")) { //In case input is empty
             stockfuturelow = 0;
         }
         else{
-            stockfuturelow = Integer.parseInt(stockFutureLow);
+            stockfuturelow = Float.parseFloat(stockFutureLow);
         }
-        if (forwardcFutureLow.equals("")) {
+        if (forwardcFutureLow.equals("")) { //In case input is empty
             forwardcfuturelow = 0;
         }
         else{
-            forwardcfuturelow = Integer.parseInt(forwardcFutureLow);
+            forwardcfuturelow = Float.parseFloat(forwardcFutureLow);
         }
-        if (callFutureLow.equals("")) {
+        if (callFutureLow.equals("")) { //In case input is empty
             callfuturelow = 0;
         }
         else{
-            callfuturelow = Integer.parseInt(callFutureLow);
+            callfuturelow = Float.parseFloat(callFutureLow);
         }
-        if (putFutureLow.equals("")) {
+        if (putFutureLow.equals("")) { //In case input is empty
             putfuturelow = 0;
         }
         else{
-            putfuturelow = Integer.parseInt(putFutureLow);
+            putfuturelow = Float.parseFloat(putFutureLow);
         }
 
 
-        if (stockFutureHigh.equals("")) {
+        if (stockFutureHigh.equals("")) { //In case input is empty
             stockfuturehigh = 0;
         }
         else{
-            stockfuturehigh = Integer.parseInt(stockFutureHigh);
+            stockfuturehigh = Float.parseFloat(stockFutureHigh);
         }
-        if (bondFuture.equals("")) {
+        if (bondFuture.equals("")) { //In case input is empty
             bondfuture = 0;
         }
         else {
-            bondfuture = Integer.parseInt(bondFuture);
+            bondfuture = Float.parseFloat(bondFuture);
         }
-        if (forwardcFutureHigh.equals("")) {
+        if (forwardcFutureHigh.equals("")) { //In case input is empty
             forwardcfuturehigh = 0;
         }
         else{
-            forwardcfuturehigh = Integer.parseInt(forwardcFutureHigh);
+            forwardcfuturehigh = Float.parseFloat(forwardcFutureHigh);
         }
-        if (callFutureHigh.equals("")) {
+        if (callFutureHigh.equals("")) { //In case input is empty
             callfuturehigh = 0;
         }
         else{
-            callfuturehigh = Integer.parseInt(callFutureHigh);
+            callfuturehigh = Float.parseFloat(callFutureHigh);
         }
-        if (putFutureHigh.equals("")) {
+        if (putFutureHigh.equals("")) { //In case input is empty
             putfuturehigh = 0;
         }
         else{
-            putfuturehigh = Integer.parseInt(putFutureHigh);
+            putfuturehigh = Float.parseFloat(putFutureHigh);
         }
-        if (percentS.equals("")) {
+        if (percentS.equals("")) { //In case input is empty
             percent = 0;
         }
         else{
-            percent = Integer.parseInt(percentS);
+            percent = Float.parseFloat(percentS);
         }
     }
 
@@ -322,7 +322,7 @@ public class UserInput extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             updatecalc();
-            goToStockResults(view); //Code that causes the AlertDialog to be displayed
+            goToStockResults(view); //Code that changes to next activity
         }
     };
 

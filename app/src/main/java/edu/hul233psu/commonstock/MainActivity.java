@@ -34,21 +34,21 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener CPortfolioListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            goToCalc(view); //Code that causes the AlertDialog to be displayed
+            goToCalc(view); //Code that causes the Portfolio Calculation Activity to start
         }
     };
 
     private View.OnClickListener StockRateListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            goToCurrStockRates(view); //Code that causes the AlertDialog to be displayed
+            goToCurrStockRates(view); //Code that causes the Current Stock Rates Activity to start
         }
     };
 
     private View.OnClickListener SavedValueListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            goToPortfolioHistory(view); //Code that causes the AlertDialog to be displayed
+            goToPortfolioHistory(view); //Code that causes the Saved Values activity to start
         }
     };
 

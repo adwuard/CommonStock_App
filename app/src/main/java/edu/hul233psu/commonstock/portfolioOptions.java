@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 public class portfolioOptions extends AppCompatActivity {
 
@@ -92,7 +93,12 @@ public class portfolioOptions extends AppCompatActivity {
     private View.OnClickListener ContinueListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            goToUserInput(view); //Code that causes the AlertDialog to be displayed
+            if (!isstocks && !isbonds && !isforwardcontract && !iscall && !isput) { //Makes it mandatory to select at least one option.
+                Toast.makeText(portfolioOptions.this, "Select at least one option from the list to proceed", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                goToUserInput(view); //Go to the User Input Activity
+            }
         }
     };
 
