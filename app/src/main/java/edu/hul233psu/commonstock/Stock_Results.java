@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 public class Stock_Results extends AppCompatActivity {
 
-    //This is what we have for the new additions to my projects for the AlertDialog, Toast, and UI button Wire-up.
+    //This is what we have for the new additions to my projects for the AlertDialog, Toast, and UI button Wire-up
     public static String saveTitle = "";
     Button emailresultbutton;
     Button done;
