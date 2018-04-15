@@ -2,21 +2,17 @@ package edu.hul233psu.commonstock;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
 
-public class portfolioOptions extends AppCompatPreferenceActivity{
+public class portfolioOptions extends AppCompatActivity {
 
     Button continuebutton;
-    public static boolean isstocks;
-    public static boolean isbonds;
-    public static boolean isforwardcontract;
-    public static boolean iscall;
-    public static boolean isput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,50 +32,46 @@ public class portfolioOptions extends AppCompatPreferenceActivity{
         switch(view.getId()) {
             case R.id.checkBox:
                 if (checked) {
-                    isstocks = true;
+                    //Code for this option
                 }
                 else {
-                    isstocks = false;
+                    //Code not for this option
                 }
                 break;
             case R.id.checkBox2:
                 if (checked) {
-                    isbonds = true;
+                    //Code for this option
                 }
                 else {
-                    isbonds = false;
+                    //Code not for this option
                 }
                 break;
             case R.id.checkBox3:
                 if (checked) {
-                    isforwardcontract = true;
+                    //Code for this option
                 }
                 else {
-                    isforwardcontract = false;
+                    //Code not for this option
                 }
                 break;
             case R.id.checkBox4:
                 if (checked) {
-                    iscall = true;
+                    //Code for this option
                 }
                 else {
-                    iscall = false;
+                    //Code not for this option
                 }
                 break;
             case R.id.checkBox5:
                 if (checked) {
-                    isput = true;
+                    //Code for this option
                 }
                 else {
-                    isput = false;
+                    //Code not for this option
                 }
                 break;
             default:
-                isstocks = false;
-                isbonds = false;
-                isforwardcontract = false;
-                iscall = false;
-                isput = false;
+                //Code here
         }
     }
 
@@ -96,4 +88,6 @@ public class portfolioOptions extends AppCompatPreferenceActivity{
         }
     };
 
-}
+    }
+
+
