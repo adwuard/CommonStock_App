@@ -4,10 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="edu.hul233psu.commonstock.portfolioOptions"
     tools:layout_editor_absoluteY="81dp"
     tools:showIn="@layout/activity_portfolio_options">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_height="10dp"
+        android:layout_width="10dp"></ListView>
 
     <LinearLayout
         android:id="@+id/linearLayout"
