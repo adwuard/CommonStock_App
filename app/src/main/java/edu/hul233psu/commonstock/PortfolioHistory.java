@@ -82,29 +82,7 @@ public class PortfolioHistory extends AppCompatActivity {
                 rowid_temp=id;
             }
         });
-
-        /*
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
-                                           long id) {
-                Intent intent = new Intent(MainActivity.this, AddActivity.class);
-                intent.putExtra("rowid", id);
-                startActivityForResult(intent,ADD_ACTIVITY_RESULT);
-                return true;
-            }
-        });*/
     }
-
-
-/*    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ADD_ACTIVITY_RESULT  && resultCode != AddActivity.RESULT_DB_UNCHANGED) {
-            dbAsyncLoadCursor(resultCode == AddActivity.RESULT_DB_ADDED_RECORD);
-        }
-    }
-*/
 
 
     @Override
@@ -112,6 +90,8 @@ public class PortfolioHistory extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+
+    //Will add in the add database after the main calculation is in good shape and functional
 
 
 
@@ -169,27 +149,6 @@ public class PortfolioHistory extends AppCompatActivity {
         }
         cursor.close();
     }
-
-
-/*
-    private void update(long rowid, String liked) {
-        ContentValues values = new ContentValues();
-        values.put("liked", liked);
-        String where = "_id = " + rowid;
-
-        int count = 0;
-        try {
-            count = db.update("jokes", values, where, null);
-        } catch (SQLException e) {
-            Log.e("JokeDB", e.getMessage());
-        }
-        if (count == 0) {
-            Toast.makeText(MainActivity.this, "Error updating record.", Toast.LENGTH_LONG).show();
-        } else {
-            dbAsyncLoadCursor(false);
-        }
-    }
-*/
 
 
     public static class DisplaySetupDialog extends DialogFragment {
