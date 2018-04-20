@@ -223,7 +223,7 @@ public class PortfolioHistory extends AppCompatActivity {
                     .setNegativeButton("Return to history",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    getActivity().finish();
+                                    dismiss();
                                 }
                             });
             return builder.create();
