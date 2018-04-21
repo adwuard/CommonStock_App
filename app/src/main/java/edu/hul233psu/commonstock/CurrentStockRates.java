@@ -34,6 +34,7 @@ public class CurrentStockRates extends AppCompatActivity {
     EditText eqname;
     String EQname = "";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,3 +50,5 @@ public class CurrentStockRates extends AppCompatActivity {
 
 
 }
+
+
