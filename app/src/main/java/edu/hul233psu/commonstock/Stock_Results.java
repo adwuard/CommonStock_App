@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -73,9 +74,13 @@ public class Stock_Results extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             //Method that issues the Toast
-            Toast.makeText(Stock_Results.this, "Email Sent", Toast.LENGTH_SHORT).show();
-            //Intent intent_2 = new Intent(Stock_Results.this, SendMail.class);
-            //startActivity(intent_2);
+            //Toast.makeText(Stock_Results.this, "Email Sent", Toast.LENGTH_SHORT).show();
+            Intent intent_2 = new Intent(Stock_Results.this, EmailSendingPage.class);
+            intent_2.putExtra("VIU", String.valueOf(valueup));
+            intent_2.putExtra("VID", String.valueOf(valuedown));
+            intent_2.putExtra("PRisk", String.valueOf(valuerisk));
+            intent_2.putExtra("PRET", String.valueOf(valuereturn));
+            startActivity(intent_2);
             //The toast appears when the user presses the Email Button and it succeeds.
         }
     };

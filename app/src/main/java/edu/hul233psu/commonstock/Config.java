@@ -5,6 +5,6 @@ package edu.hul233psu.commonstock;
  */
 
 public class Config {
-    public static final String EMAIL ="p857211@gmail.com";
-    public static final String PASSWORD ="Power@1497";
+    public static final String EMAIL ="login Email";
+    public static final String PASSWORD ="password";
 }

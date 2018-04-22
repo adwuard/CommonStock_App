@@ -1,12 +1,18 @@
 package edu.hul233psu.commonstock;
 
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.util.Properties;
+
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+
 
 public class EmailSendingPage extends AppCompatActivity implements View.OnClickListener {
 
@@ -18,6 +24,8 @@ public class EmailSendingPage extends AppCompatActivity implements View.OnClickL
     //Send button
     private Button buttonSend;
 
+
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,35 +33,41 @@ public class EmailSendingPage extends AppCompatActivity implements View.OnClickL
 
         //Initializing the views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextSubject = (EditText) findViewById(R.id.editTextSubject);
+        editTextSubject = findViewById(R.id.editTextSubject);
         editTextMessage = (EditText) findViewById(R.id.editTextMessage);
 
         buttonSend = (Button) findViewById(R.id.buttonSend);
 
         //Adding click listener
-        //buttonSend.setOnClickListener(this);
+        buttonSend.setOnClickListener(this);
 
-        buttonSend.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
+        String VIU = getIntent().getStringExtra("VIU");
+        String VID = getIntent().getStringExtra("VID");
+        String PRisk = getIntent().getStringExtra("PRisk");
+        String PRET = getIntent().getStringExtra("PRET");
 
-                try {
-                    SendMail sender = new SendMail("p857211@gmail.com", "Power@1497");
-                    sender.sendMail("This is Subject",
-                            "This is Body",
-                            "p857211@gmail.com",
-                            "p857211@gmail.com");
-                } catch (Exception e) {
-                    Log.e("SendMail", e.getMessage(), e);
-                }
+        editTextMessage.setText("Value If Up: " + Stock_Results.valueifup+"\n"+"Value If Down: " +
+                Stock_Results.valueifdown+ "\n"+"Risk: "+Stock_Results.prisk+ "\n"+"Return: "+ Stock_Results.preturn);
 
-            }
-        });
+    }
+
+
+    private void sendEmail() {
+        //Getting content for email
+        String email = editTextEmail.getText().toString().trim();
+        String subject = editTextSubject.getText().toString().trim();
+        String message = editTextMessage.getText().toString().trim();
+
+        //Creating SendMail object
+        SendEMail sm = new SendEMail(this, email, subject, message);
+
+        //Executing sendmail to send email
+        sm.execute();
     }
 
     @Override
-    public void onClick(View view) {
-
+    public void onClick(View v) {
+        sendEmail();
     }
 }
