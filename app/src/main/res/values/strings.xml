@@ -32,6 +32,14 @@
     <string name="calculate">Calculate</string>>
     <string name="eqname">Equity Name</string>>
 
+    <string name="Stock">Stock: </string>>
+    <string name="curdate">Current Date: </string>>
+    <string name="openvalue">Open Value: </string>>
+    <string name="hivalue">High Value: </string>>
+    <string name="lovalue">Low Value: </string>>
+    <string name="vol">Volume: </string>>
+    <string name="alphavantagemessage">This feature uses AlphaVantage API.</string>>
+
     <string name="clearButton">Clear</string>
     <string name="Backbutton">Back</string>
     <string name="title_activity_current_stock_rates">CurrentStockRates</string>
