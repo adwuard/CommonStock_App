@@ -34,7 +34,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation files('/Users/edwardlai/Desktop/additionnal.jar')
-    implementation files('/Users/edwardlai/Desktop/activation.jar')
-    implementation files('/Users/edwardlai/Desktop/mail.jar')
+    implementation files('/Users/edwardlai/Desktop/Dependicies/activation.jar')
+    implementation files('/Users/edwardlai/Desktop/Dependicies/additionnal.jar')
+    implementation files('/Users/edwardlai/Desktop/Dependicies/mail.jar')
 }
