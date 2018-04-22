@@ -59,7 +59,15 @@
     <string name="editvalues">Edit Values</string>>
 
 
-
     <string name="Return">Return Value:</string>>
+
+
+
+
+    --!
+    <string name="Recipient">Recipient Email</string>>
+    <string name="Subject">Subject</string>>
+    <string name="Message">Message</string>>
+    <string name="Send">Send</string>>
 
 </resources>

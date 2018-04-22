@@ -36,7 +36,6 @@ public class PortfolioHistory extends AppCompatActivity {
     public static long rowid_temp;
     private SQLiteDatabase db;
     private SimpleCursorAdapter adapter;
-    private final static int ADD_ACTIVITY_RESULT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,7 +203,7 @@ public class PortfolioHistory extends AppCompatActivity {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-            builder.setTitle("Delete the joke?")
+            builder.setTitle("Delete this result?")
                     .setMessage("You will not be able to undo the deletion!")
                     .setPositiveButton("Delete",
                             new DialogInterface.OnClickListener() {

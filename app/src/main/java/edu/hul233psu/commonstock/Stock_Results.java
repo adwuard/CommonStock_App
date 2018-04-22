@@ -74,6 +74,8 @@ public class Stock_Results extends AppCompatActivity {
         public void onClick(View view) {
             //Method that issues the Toast
             Toast.makeText(Stock_Results.this, "Email Sent", Toast.LENGTH_SHORT).show();
+            //Intent intent_2 = new Intent(Stock_Results.this, SendMail.class);
+            //startActivity(intent_2);
             //The toast appears when the user presses the Email Button and it succeeds.
         }
     };
