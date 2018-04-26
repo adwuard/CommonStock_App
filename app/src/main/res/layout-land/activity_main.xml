@@ -8,22 +8,21 @@
     tools:context="edu.hul233psu.commonstock.MainActivity"
     tools:layout_editor_absoluteY="25dp">
 
-
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="249dp"
-        android:layout_height="264dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="31dp"
+        android:layout_width="171dp"
+        android:layout_height="188dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/forwardText"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
-
-
-
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -32,51 +31,102 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="16dp" />
 
-    <LinearLayout
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="@android:style/Widget.ImageButton"
         android:layout_width="wrap_content"
-        android:layout_height="214dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="76dp"
+        android:layout_marginTop="212dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:contentDescription="@string/calculate"
+        android:src="@drawable/clc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="462dp"
+        android:layout_height="101dp"
+        android:layout_marginLeft="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.496">
+        app:layout_constraintVertical_bias="0.751">
 
-        <Button
-            android:id="@+id/button"
+        <ImageButton
+            android:id="@+id/imageButton3"
+            style="@android:style/Widget.Holo.Light.ImageButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/calPortValue" />
-
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="211dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/seeCurrStockRate" />
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/savedPortValues"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/hist"
+            tools:layout_editor_absoluteY="237dp" />
 
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="207dp"
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/savedPortValues" />
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/CurrentStockRates"
+            app:srcCompat="@drawable/stoc"
+            tools:layout_editor_absoluteX="490dp"
+            tools:layout_editor_absoluteY="237dp" />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="598dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageButton">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="152dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/calculate"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+            tools:layout_editor_absoluteX="66dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="157dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/savedPortValues"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView14"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="29dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:text="@string/CurrentStockRates"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="441dp"
+            tools:text="@string/CurrentStockRates" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
