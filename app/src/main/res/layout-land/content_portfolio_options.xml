@@ -14,18 +14,18 @@
         android:layout_width="10dp"></ListView>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="360dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <CheckBox
             android:id="@+id/checkBox"
@@ -34,6 +34,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="320dp"
             android:layout_marginLeft="16dp"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
             android:text="@string/stocksCheckBox"
             app:layout_constraintBottom_toTopOf="@+id/checkBox2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -46,6 +48,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="323dp"
             android:layout_marginLeft="16dp"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
             android:text="@string/bondsCheckBox"
             app:layout_constraintBottom_toTopOf="@+id/checkBox3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -59,6 +63,8 @@
             android:layout_marginEnd="244dp"
             android:layout_marginLeft="16dp"
             android:autoSizeMaxTextSize="@dimen/fab_margin"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
             android:text="@string/ForwardContractsCheckBox"
             app:layout_constraintBottom_toTopOf="@+id/checkBox4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +77,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="286dp"
             android:layout_marginLeft="16dp"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
             android:text="@string/callOptionsCheckBox"
             app:layout_constraintBottom_toTopOf="@+id/checkBox5"
             app:layout_constraintEnd_toEndOf="parent"
@@ -83,6 +91,8 @@
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="289dp"
             android:layout_marginLeft="16dp"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
             android:text="@string/putOptionsCheckBox"
             app:layout_constraintBottom_toTopOf="@+id/button4"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,21 +106,19 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/continueButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintGuide_begin="301dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

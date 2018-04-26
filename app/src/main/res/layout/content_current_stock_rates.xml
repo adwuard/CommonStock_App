@@ -101,7 +101,7 @@
         android:layout_height="42dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/eqname"
+        android:text="@string/Search"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 

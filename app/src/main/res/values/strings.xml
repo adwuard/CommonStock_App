@@ -68,6 +68,7 @@
     <string name="Recipient">Recipient Email</string>>
     <string name="Subject">Subject</string>>
     <string name="Message">Message</string>>
-    <string name="Send">Send</string>>
+    <string name="Send">Send</string>
+    <string name="Search">Search</string>>
 
 </resources>
