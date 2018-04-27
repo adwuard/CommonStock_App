@@ -1,5 +1,6 @@
 package edu.hul233psu.commonstock;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,21 +13,23 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
 
-
     ImageButton CPortfolioButton;
     ImageButton StockRateButton;
     ImageButton SavedValuesButton;
+    ImageButton SPButton;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SPButton = findViewById(R.id.imageButton4);
         CPortfolioButton=findViewById(R.id.imageButton);
         StockRateButton=findViewById(R.id.imageButton2);
         SavedValuesButton=findViewById(R.id.imageButton3);
 
-
+        SPButton.setOnClickListener(sharePButtonListener);
         CPortfolioButton.setOnClickListener(CPortfolioListener); //Wires the button to the UI Listener
         StockRateButton.setOnClickListener(StockRateListener); //Wires the button to the UI Listener
         SavedValuesButton.setOnClickListener(SavedValueListener); //Wires the button to the UI Listener
@@ -46,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
             goToCurrStockRates(view); //Code that causes the Current Stock Rates Activity to start
         }
     };
+    private View.OnClickListener sharePButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            goToSP(view); //Code that causes the Current Stock Rates Activity to start
+        }
+    };
 
     private View.OnClickListener SavedValueListener = new View.OnClickListener() {
         @Override
@@ -57,6 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToCalc(View view) {
         Intent intent = new Intent(this, portfolioOptions.class);
+        startActivity(intent);
+    }
+    public void goToSP(View view) {
+        Intent intent = new Intent(this, SharedPref.class);
         startActivity(intent);
     }
 

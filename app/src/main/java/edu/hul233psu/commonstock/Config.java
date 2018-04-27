@@ -1,5 +1,9 @@
 package edu.hul233psu.commonstock;
 
+import android.content.SharedPreferences;
+
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by edwardlai on 4/21/18.
  */

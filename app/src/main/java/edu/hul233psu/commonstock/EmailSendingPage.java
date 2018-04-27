@@ -2,6 +2,7 @@ package edu.hul233psu.commonstock;
 
 
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -47,8 +48,15 @@ public class EmailSendingPage extends AppCompatActivity implements View.OnClickL
         String PRisk = getIntent().getStringExtra("PRisk");
         String PRET = getIntent().getStringExtra("PRET");
 
+
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+        String name=pref.getString("userName", null);
+        editTextSubject.setText(name);
+
+
         editTextMessage.setText("Value If Up: " + Stock_Results.valueifup+"\n"+"Value If Down: " +
-                Stock_Results.valueifdown+ "\n"+"Risk: "+Stock_Results.prisk+ "\n"+"Return: "+ Stock_Results.preturn);
+                Stock_Results.valueifdown+ "\n"+"Risk: "+Stock_Results.prisk+ "\n"+"Return: "+ Stock_Results.preturn+"\n Senging from: "+pref.getString("userName", null)+ "\n Reply to: "+pref.getString("userAddress", null));
+
 
     }
 

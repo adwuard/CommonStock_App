@@ -7,6 +7,7 @@ package edu.hul233psu.commonstock;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
@@ -19,6 +20,8 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import static edu.hul233psu.commonstock.UserInfo.MY_PREFS_NAME;
 
 /**
  * Created by Belal on 10/30/2015.
@@ -77,6 +80,8 @@ public class SendEMail extends AsyncTask<Void,Void,Void> {
         props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
+
+
 
         //Creating a new session
         session = Session.getDefaultInstance(props,
